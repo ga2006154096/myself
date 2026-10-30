@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youlin (@youlin14) | 個人主頁</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & Noto Sans TC -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        ig: {
+                            yellow: '#fccc63',
+                            orange: '#fbaac9',
+                            pink: '#d62976',
+                            purple: '#962fbf',
+                            blue: '#4f5bd5'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans TC', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Instagram Gradient Accent Backgrounds */
+        .ig-gradient-text {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .ig-gradient-bg {
+            background: linear-gradient(135deg, #4f5bd5, #962fbf, #d62976, #fa7e1e, #fccc63);
+        }
+
+        .ig-gradient-btn {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            background-size: 200% 200%;
+            transition: all 0.3s ease;
+        }
+
+        .ig-gradient-btn:hover {
+            background-position: right center;
+            box-shadow: 0 10px 20px rgba(220, 39, 67, 0.3);
+        }
+
+        /* Avatar border story gradient */
+        .story-ring {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            padding: 3px;
+            border-radius: 50%;
+        }
+
+        /* Glassmorphism */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .dark .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen transition-colors duration-300 flex flex-col font-sans">
+
+    <!-- Top Navigation Bar -->
+    <header class="sticky top-0 z-40 w-full glass-card border-b border-slate-200/50 dark:border-slate-800/50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-2 text-xl font-bold tracking-tight">
+                <i class="fa-brands fa-instagram text-2xl text-pink-600 dark:text-pink-500"></i>
+                <span class="ig-gradient-text">Youlin</span>
+            </a>
+
+            <!-- Right Controls -->
+            <div class="flex items-center gap-3">
+                <!-- Share Button -->
+                <button id="copyBtn" onclick="copyLink()" class="p-2.5 rounded-full hover:bg-slate-200/60 dark:hover:bg-slate-800 transition text-slate-600 dark:text-slate-300" title="複製頁面連結">
+                    <i class="fa-regular fa-share-from-square"></i>
+                </button>
+                
+                <!-- Dark Mode Toggle -->
+                <button id="themeToggle" class="p-2.5 rounded-full hover:bg-slate-200/60 dark:hover:bg-slate-800 transition text-slate-600 dark:text-slate-300" title="切換深淺模式">
+                    <i id="themeIcon" class="fa-regular fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Profile Container -->
+    <main class="flex-1 max-w-4xl w-full mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-10">
+
+        <!-- Hero / Profile Section -->
+        <section class="glass-card rounded-3xl p-6 sm:p-10 shadow-xl shadow-slate-200/50 dark:shadow-none flex flex-col sm:flex-row items-center gap-6 sm:gap-10 transition-all duration-300">
+            <!-- Avatar with Instagram Story Ring -->
+            <div class="relative group cursor-pointer flex-shrink-0">
+                <div class="story-ring transition-transform duration-300 group-hover:scale-105">
+                    <div class="bg-white dark:bg-slate-900 p-1 rounded-full">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" 
+                             alt="Youlin Profile" 
+                             class="w-28 h-28 sm:w-36 sm:h-36 rounded-full object-cover shadow-inner">
+                    </div>
+                </div>
+                <!-- Active badge -->
+                <span class="absolute bottom-1 right-1 bg-green-500 w-5 h-5 rounded-full border-2 border-white dark:border-slate-900" title="在線中"></span>
+            </div>
+
+            <!-- Profile Info -->
+            <div class="flex-1 text-center sm:text-left space-y-4">
+                <div>
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
+                        <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Youlin</h1>
+                        <span class="inline-flex items-center justify-center self-center sm:self-auto px-2.5 py-0.5 rounded-full text-xs font-semibold bg-pink-100 dark:bg-pink-950/60 text-pink-600 dark:text-pink-400 border border-pink-200 dark:border-pink-800">
+                            @youlin14
+                        </span>
+                    </div>
+                    <p class="text-slate-500 dark:text-slate-400 mt-1 text-sm sm:text-base">✨ 生活紀錄 | 攝影創作者 | 探索日常靈感</p>
+                </div>
+
+                <!-- Brief Bio Paragraph -->
+                <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed max-w-xl">
+                    嗨！我是 Youlin 👋 歡迎來到我的個人小天地。這裡記錄著我的攝影作品、日常隨筆與生活點滴。快追蹤我的 Instagram 探索更多即時動態！
+                </p>
+
+                <!-- Action Buttons Group -->
+                <div class="flex flex-wrap items-center justify-center sm:justify-start gap-3 pt-2">
+                    <!-- Main CTA: IG Follow -->
+                    <a href="https://www.instagram.com/youlin14/" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="ig-gradient-btn text-white font-medium px-6 py-2.5 rounded-full inline-flex items-center gap-2 shadow-lg hover:scale-105 active:scale-95 transition-all text-sm">
+                        <i class="fa-brands fa-instagram text-lg"></i>
+                        <span>追蹤 Instagram</span>
+                    </a>
+
+                    <!-- Direct Message / Contact Button -->
+                    <a href="https://www.instagram.com/direct/t/youlin14/" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="px-5 py-2.5 rounded-full font-medium border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 text-sm transition hover:scale-105 active:scale-95 inline-flex items-center gap-2">
+                        <i class="fa-regular fa-paper-plane"></i>
+                        <span>傳送私訊</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Highlights / About Section -->
+        <section class="space-y-4">
+            <h2 class="text-xl font-bold flex items-center gap-2 px-1">
+                <i class="fa-solid fa-sparkles text-amber-500"></i>
+                <span>個人亮點與興趣</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- Card 1 -->
+                <div class="glass-card rounded-2xl p-5 hover:border-pink-500/50 transition duration-300 flex flex-col space-y-2 group">
+                    <div class="w-10 h-10 rounded-xl bg-pink-100 dark:bg-pink-900/40 text-pink-600 dark:text-pink-400 flex items-center justify-center text-lg group-hover:scale-110 transition">
+                        <i class="fa-solid fa-camera"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg">街頭攝影</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm">喜歡用鏡頭捕捉城市角落的微光與光影交織的精彩瞬間。</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card rounded-2xl p-5 hover:border-purple-500/50 transition duration-300 flex flex-col space-y-2 group">
+                    <div class="w-10 h-10 rounded-xl bg-purple-100 dark:bg-purple-900/40 text-purple-600 dark:text-purple-400 flex items-center justify-center text-lg group-hover:scale-110 transition">
+                        <i class="fa-solid fa-mug-hot"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg">咖啡與生活</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm">探索各地獨立咖啡館，享受手沖咖啡帶來沉靜的美好時光。</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card rounded-2xl p-5 hover:border-blue-500/50 transition duration-300 flex flex-col space-y-2 group">
+                    <div class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 flex items-center justify-center text-lg group-hover:scale-110 transition">
+                        <i class="fa-solid fa-plane"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg">旅行足跡</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm">走訪不同城市與山林，紀錄每一次未知的探索與驚喜冒險。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Photo Gallery Highlights -->
+        <section class="space-y-4">
+            <div class="flex items-center justify-between px-1">
+                <h2 class="text-xl font-bold flex items-center gap-2">
+                    <i class="fa-solid fa-border-all text-pink-500"></i>
+                    <span>精選相片牆</span>
+                </h2>
+                <a href="https://www.instagram.com/youlin14/" target="_blank" class="text-xs font-semibold text-pink-600 dark:text-pink-400 hover:underline flex items-center gap-1">
+                    看更多 IG 貼文 <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                </a>
+            </div>
+
+            <!-- Instagram Grid Mockup -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
+                <!-- Gallery Item 1 -->
+                <div class="group relative aspect-square rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-800 cursor-pointer shadow-md" onclick="openPhotoModal('https://images.unsplash.com/photo-1517760444937-f6397edcbbcd?auto=format&fit=crop&q=80&w=800', '夕陽餘暉')">
+                    <img src="https://images.unsplash.com/photo-1517760444937-f6397edcbbcd?auto=format&fit=crop&q=80&w=600" alt="Gallery Photo" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 text-white font-medium text-sm">
+                        <span><i class="fa-solid fa-heart mr-1"></i> 142</span>
+                        <span><i class="fa-solid fa-comment mr-1"></i> 18</span>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="group relative aspect-square rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-800 cursor-pointer shadow-md" onclick="openPhotoModal('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&q=80&w=800', '午後咖啡時光')">
+                    <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&q=80&w=600" alt="Gallery Photo" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 text-white font-medium text-sm">
+                        <span><i class="fa-solid fa-heart mr-1"></i> 256</span>
+                        <span><i class="fa-solid fa-comment mr-1"></i> 32</span>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="group relative aspect-square rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-800 cursor-pointer shadow-md" onclick="openPhotoModal('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=800', '公路旅行冒險')">
+                    <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=600" alt="Gallery Photo" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 text-white font-medium text-sm">
+                        <span><i class="fa-solid fa-heart mr-1"></i> 310</span>
+                        <span><i class="fa-solid fa-comment mr-1"></i> 45</span>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 -->
+                <div class="group relative aspect-square rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-800 cursor-pointer shadow-md" onclick="openPhotoModal('https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&q=80&w=800', '繁華夜色')">
+                    <img src="https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&q=80&w=600" alt="Gallery Photo" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 text-white font-medium text-sm">
+                        <span><i class="fa-solid fa-heart mr-1"></i> 198</span>
+                        <span><i class="fa-solid fa-comment mr-1"></i> 22</span>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 5 -->
+                <div class="group relative aspect-square rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-800 cursor-pointer shadow-md" onclick="openPhotoModal('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&q=80&w=800', '隨意漫步')">
+                    <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&q=80&w=600" alt="Gallery Photo" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 text-white font-medium text-sm">
+                        <span><i class="fa-solid fa-heart mr-1"></i> 420</span>
+                        <span><i class="fa-solid fa-comment mr-1"></i> 51</span>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 6 -->
+                <div class="group relative aspect-square rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-800 cursor-pointer shadow-md" onclick="openPhotoModal('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800', '海浪聲與微風')">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=600" alt="Gallery Photo" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 text-white font-medium text-sm">
+                        <span><i class="fa-solid fa-heart mr-1"></i> 289</span>
+                        <span><i class="fa-solid fa-comment mr-1"></i> 30</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass-card mt-auto border-t border-slate-200/50 dark:border-slate-800/50 py-8">
+        <div class="max-w-4xl mx-auto px-4 text-center space-y-4">
+            <!-- Social Link Bar -->
+            <div class="flex justify-center items-center gap-4 text-xl">
+                <a href="https://www.instagram.com/youlin14/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full glass-card flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-pink-600 dark:hover:text-pink-400 hover:scale-110 transition">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="mailto:contact@example.com" class="w-10 h-10 rounded-full glass-card flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-pink-600 dark:hover:text-pink-400 hover:scale-110 transition" title="寄信給我">
+                    <i class="fa-regular fa-envelope"></i>
+                </a>
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400">
+                &copy; <span id="year"></span> Youlin. All rights reserved. Hosted on GitHub Pages.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal for Photo Preview -->
+    <div id="photoModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
+        <div class="relative max-w-2xl w-full bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-2xl scale-95 transition-transform duration-300" id="modalContent">
+            <!-- Close Button -->
+            <button onclick="closePhotoModal()" class="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/80 transition">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <img id="modalImage" src="" alt="Preview" class="w-full max-h-[70vh] object-cover">
+            <div class="p-4 flex items-center justify-between">
+                <span id="modalCaption" class="font-medium text-slate-800 dark:text-slate-200"></span>
+                <a href="https://www.instagram.com/youlin14/" target="_blank" class="ig-gradient-btn text-white text-xs font-semibold px-4 py-2 rounded-full flex items-center gap-1.5">
+                    <i class="fa-brands fa-instagram"></i> 前往 IG 查看
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 glass-card bg-slate-900/90 text-white dark:bg-white/90 dark:text-slate-900 px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300">
+        <i class="fa-solid fa-circle-check text-green-400 dark:text-green-600 text-lg"></i>
+        <span id="toastMsg" class="text-sm font-medium">已複製連結至剪貼簿！</span>
+    </div>
+
+    <!-- JavaScript Interactions -->
+    <script>
+        // Set dynamic year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+
+        // Check stored theme or system preference
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        } else {
+            document.documentElement.classList.remove('dark');
+            themeIcon.classList.replace('fa-sun', 'fa-moon');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+            }
+        });
+
+        // Copy Link Function
+        function copyLink() {
+            const url = window.location.href;
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).then(() => showToast('網址已複製到剪貼簿！'));
+            } else {
+                // Fallback method
+                const dummy = document.createElement('input');
+                document.body.appendChild(dummy);
+                dummy.value = url;
+                dummy.select();
+                document.execCommand('copy');
+                document.body.removeChild(dummy);
+                showToast('網址已複製到剪貼簿！');
+            }
+        }
+
+        // Show Toast Notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            toastMsg.textContent = message;
+            
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Photo Modal Lightbox Logic
+        const modal = document.getElementById('photoModal');
+        const modalImg = document.getElementById('modalImage');
+        const modalCaption = document.getElementById('modalCaption');
+        const modalContent = document.getElementById('modalContent');
+
+        function openPhotoModal(src, caption) {
+            modalImg.src = src;
+            modalCaption.textContent = caption;
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalContent.classList.remove('scale-95');
+                modalContent.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closePhotoModal() {
+            modal.classList.add('opacity-0');
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Close Modal when clicking outside the content
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closePhotoModal();
+            }
+        });
+    </script>
+</body>
+</html>
